@@ -79,7 +79,7 @@ async def analyze(q: Query):
             "avg_uptime": round(sum(upt)/len(upt), 2) if upt else 0,
             "breaches": sum(1 for l in lat if l > q.threshold_ms),
         }
-    return JSONResponse(result, headers=H)
+    return JSONResponse({"regions": result}, headers=H)
 
 @app.get("/")
 async def root():
