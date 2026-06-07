@@ -83,4 +83,8 @@ async def analyze(q: Query):
 
 @app.get("/")
 async def root():
-    return JSONResponse({"status": "ok"}, headers=H)
+    return JSONResponse({"status": "ok"}, headers=H)\
+
+@app.post("/api/latency")
+async def analyze_latency(q: Query):
+    return await analyze(None, q)
